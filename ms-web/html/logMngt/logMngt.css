@@ -1,0 +1,262 @@
+/*公用*/
+/*清除浮动*/
+[ui-view=right]{overflow:auto;}
+.clearfix{
+    display: inline-block;
+}
+.clearfix:after{
+    display:block;
+    content: '';
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.logMngt-title {
+    width:100%;
+    height:32px;
+}
+.logMngt-title span{
+    height:32px;
+    line-height:32px;
+    font-size:23px;
+    float:left;
+}
+.closeDateBox {
+    display:none;
+}
+.dateBox {
+    border-left: 1px solid #e1e3e5;
+    border-right: 1px solid #e1e3e5;
+    border-bottom: 1px solid #e1e3e5;
+}
+/*logMngt页面*/
+.queryLogBtn {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+}
+.logMngt-list-query{
+    background:#fff;
+}
+.logMngt-list-query:after{
+    display:block;
+    content:"";
+    clear:both;
+}
+.logMngt-list-query .ms-input{
+    width: 47.9%;
+}
+.logMngt-list-query .ms-input:nth-of-type(2n){
+    margin-right: 0px;
+    float:right;
+}
+.cont{
+    margin-top: 15px;
+    background: #FFFFFF;
+    min-height: 700px;
+    padding: 30px;
+}
+.logMngt-operate-time{
+    width: 48.9%;
+}
+.logMngt-operate-time .timeInput{
+    /* height: 50px; */
+    width: 46.3%;
+    float: left;
+    border: 1px solid #e1e3e5;
+    /* padding-left: 13px; */
+    position: relative;
+}
+.rang {
+    width: 5%;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    margin: 0.75%;
+}
+.datePicture {
+    width: 20px;
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    background: url('image/notice.png') -47px -23px;
+}
+.logMngt-operate-time .timeInput:nth-of-type(2n){
+    float: right;
+}
+.input-top{
+    margin-left: 13px;
+    display: inline;
+    font-size: 12px;
+    color: #36383c;
+    line-height: 26px;
+}
+.input-bottom input {
+    padding-left: 13px;
+    padding-bottom: 5px;
+    border: 0px;
+}
+.w-required{
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    font-size: 12px;
+    color: #e50017;
+}
+
+/*查询结果显示模块*/
+.listbar{
+    margin-top: 20px;
+}
+.logTreeListHead{
+    list-style: none;
+    height: 30px;
+    color: #7b8084;
+    line-height: 30px;
+    border-top: 1px solid #bac0c6;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+.logTreeListHead span:nth-child(1) {
+    width: 6%;
+    margin-left: 3%;
+}
+.logTreeListHead span:nth-child(2) {
+    width: 17%;
+}
+.logTreeListHead span:nth-child(3) {
+    width: 13%;
+}
+.logTreeListHead span:nth-child(4) {
+    width: 18%;
+}
+.logTreeListHead span:nth-child(5) {
+    width: 16%;
+}
+.logTreeListHead span:nth-child(6) {
+    width: 23%;
+}
+.logTreeListHead span {
+    display: inline-block;
+    line-height: 14px;
+    padding-left: 0.5434783%;
+    border-left: 1px solid #e5e5e5;
+}
+/*列表查询结果单元条样式*/
+.logListResultItem span:nth-child(1) {
+    width: 6%;
+    margin-left: 3%;
+}
+.logListResultItem span:nth-child(2) {
+    width: 17%;
+}
+.logListResultItem span:nth-child(3) {
+    width: 13%;
+}
+.logListResultItem span:nth-child(4) {
+    width: 18%;
+}
+.logListResultItem span:nth-child(5) {
+    width: 16%;
+}
+.logListResultItem span:nth-child(6) {
+    width: 23%;
+}
+.logListResultItem {
+    position: relative;
+    list-style: none;
+    line-height: 30px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+.logListResultItem span {
+    display: inline-block;
+    line-height: 14px;
+    padding-left: 0.5434783%;
+    border-left: 1px solid #e5e5e5;
+}
+.itemDetail{
+    width: 100%;
+    height:100px;
+    background-color: #e1e3e8;
+}
+.itemDetailLeft {
+    width: 50%;
+}
+.itemDetailright{
+    width: 50%;
+}
+
+.moveRight{                        /*整个箭头容器*/
+    width: 25px;
+    height: 15px;
+    background: url("image/Icon.png") no-repeat 0px -15px;
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    left: 14px;
+}
+
+
+.moveDown{                          /*箭头占位符，规定宽高等*/
+    width: 15px;
+    height: 17px;
+    background: url("image/Icon.png") no-repeat -4px -29px;
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: 15px;
+}
+
+
+/*模态框样式*/
+.modalDirective #mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #999999;
+    width: 100%;
+    height: 100%;
+    z-index: 1200;
+    opacity: 0.5;
+}
+
+.modalDirective .modalList{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 5px 10px;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 450px;
+    background: #fff;
+    z-index: 1300;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.modalDirective .modalList .listTitle{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #999;
+}
+.modalDirective .modalList .listTitle h3{
+    height: 100%;
+    line-height: 40px;
+    font-size: 18px;
+}
+.w-input:nth-of-type(2n){
+    float: right;!important;
+}
+/*隐藏滚动条*/
+/*html {
+    -ms-overflow-style:none;
+    overflow:-moz-scrollbars-none;
+}
+html::-webkit-scrollbar{width:0px}*/
+

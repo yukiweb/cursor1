@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<script src="html/error/error.js"></script>
+<link rel="stylesheet" type="text/css" href="html/error/error.css">
+<div ng-controller="noAuth" class="error-area">
+	<div class="error-pic"></div>
+	<h1 class="error-hint" ng-bind='"error.hint.403"|msLang'></h1>
+	<div class="error-btn">
+		<span ng-bind='"error.button.prev"|msLang' ng-click="goPrev()"></span>
+		<span ng-bind='"error.button.home"|msLang' ng-click="goHome()"></span>
+		<span ng-bind='"error.button.refresh"|msLang' ng-click="refresh()"></span>
+	</div>
+</div>

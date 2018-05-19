@@ -1,0 +1,11 @@
+{
+    "type": "software",
+    "scope": "MySupportWeb",
+    "name": "ms-web",
+    "version": "1.0.2.1",
+    "playbook": {
+        "scope": "common",
+        "name": "app-install",
+        "version": "1.0.0"
+    }
+}

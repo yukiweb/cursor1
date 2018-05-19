@@ -1,0 +1,20 @@
+<span class="w-invaild" ng-messages="valid.$error" ng-show="!inputFocus && (valid.$touched || valid.$dirty || valid.$$parentForm.submitted)"> 
+	<span ng-message="linkRequired" class="w-invalidMesage" ng-show="valid.$dirty">
+		<i class="w-invalidIcon"></i>{{linkMessage}}
+	</span> 	
+	<span ng-message="pattern" class="w-invalidMesage" ng-show="valid.$dirty">
+		<i class="w-invalidIcon"></i>{{patternMessage}}
+	</span> 
+	<span ng-message="required" class="w-invalidMesage" >
+		<i class="w-invalidIcon"></i>{{requiredMessage}}
+	</span>
+	<span ng-message="maxlength" class="w-invalidMesage" ng-bind="maxMessage">
+		<i class="w-invalidIcon"></i>{{maxMessage}}
+	</span>
+	<span ng-message="minlength" class="w-invalidMesage" ng-bind="minMessage">
+		<i class="w-invalidIcon"></i>{{minMessage}}
+	</span>
+	<span ng-message="unique" class="w-invalidMesage" ng-show="valid.$dirty && valid.$$parentForm.submitted">
+		<i class="w-invalidIcon"></i>{{uniqueMessage}}
+	</span> 	
+</span> 

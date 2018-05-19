@@ -1,0 +1,83 @@
+<meta charset="utf-8">
+<script src="html/setting/setting.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/ngDialog.css">
+<link rel="stylesheet" href="../../css/ngDialog-theme-default.min.css">
+<link rel="stylesheet" href="html/setting/setting.css">
+<link rel="stylesheet" type="text/css" href="html/setting/setting.css">
+<div class="conRight" ng-controller="settingRight">
+    <div class="clearfix">
+        <h1 class="floatL resourceTitle">资源管理</h1>
+        <button class="w-btn w-fillBtn w-xsmallBtn floatR" ui-sref="index.setting.createresource({type:'add'})">新增</button>
+    </div>
+    <div class="cont" style="padding: 20px;">
+        <div class="clearfix">
+            <!-- 自定义directive -->
+            <ms-selects list='isShowMenu'></ms-selects>
+            <ms-input class="w-input" title="资源ID/名称" placeholder="请输入资源ID/名称" form="form.cnNname" required="false" blur-check="false"></ms-input>
+            <div class='w-input abeled' ng-click="selectApps()">
+                <div class='w-inputTitle'>所属业务块</div>
+                <input type="text" placeholder="请点击选择" id="ResourcesCName" ng-model="businessId" readonly="readonly" class="currentVal" />
+                <i class="point"></i>
+            </div>
+            <button class="w-btn w-fillBtn w-xsmallBtn appMngtBtn floatR" ng-click="reGetResoList()"> 查询</button>
+        </div>
+        <div class="resourceList" >
+            <div class="listHead">
+                <span class="iconArea"></span>
+                <span>资源类型</span>
+                <span>资源ID</span>
+                <span>资源名称</span>
+                <span>业务模块</span>
+                <span>操作</span>
+            </div>
+            <ul class="listBody" >
+                <li ng-repeat="item in items" class="fatherNode">
+                    <span class="itemContent">    
+                       <!--  <i ng-if="item.hasChild" class="foldedIcon" ng-click="item.isShowChild=!item.isShowChild;showSon(item.resourceId)" ng-class="{'open':item.isShowChild}"></i> -->
+                    </span>
+                    <span class="textArea" title="{{item.resourceType}}" clamp-ellipsis  clamp="2">{{item.resourceType}}</span>
+                    <span class="textArea" title="{{item.resourceId}}" clamp-ellipsis  clamp="2">{{item.resourceId}}</span>
+                    <span class="textArea" title="{{item.resourceName}}" clamp-ellipsis  clamp="2">{{item.resourceName}}</span>
+                    <span class="textArea" title="{{item.appId}}" clamp-ellipsis  clamp="2">{{item.appId}}</span>
+                    <div class="operationBtns">
+                        <a href="javascript:;" ng-show="item.resourceType!=fun" ui-sref="index.setting.createresource({type:'add',parentIds:item.resourceId,resourceType:map1[item.resourceType]})">新增子资源</a>
+                        <a href="javascript:;" ui-sref="index.setting.createresource({type:'view',resourceId:item.resourceId,resourceType:map1[item.resourceType]})">详情</a>
+                        <a href="javascript:;" ui-sref="index.setting.createresource({type:'update',resourceId:item.resourceId,resourceType:map1[item.resourceType]})">修改</a>
+                        <a href="javascript:;" ng-click='delResource(item.resourceId)'>删除</a>
+                    </div>
+                    <!-- 此处循环childList -->
+                    <!-- <ul class="childList"  ng-show="item.hasChild&&item.isShowChild">
+                        <li ng-repeat='child in childLists'>
+                            <span class="itemContent">
+                                <i class="y"></i>
+                                <i class="x"></i>
+                                <i ng-if="child.hasChild&&childLists.length" class="foldedIcon" ng-class="{mgf_26:item.hasChild}"></i>
+                            </span>
+                            <span class="textArea" title="">{{child.resourceType}}</span>
+                            <span class="textArea" title="">{{child.resourceId}}</span>
+                            <span class="textArea" title="">{{child.resourceName}}</span>
+                            <span class="textArea" title="">{{child.appId}}</span>
+                            <div class="operationBtns">
+                                <a href="javascript:;" ng-show="item.resourceType!=fun">新增子资源</a>
+                                <a href="javascript:;">详情</a>
+                                <a href="javascript:;" ui-sref="index.setting.createresource({type:'update'})">修改</a>
+                                <a href="javascript:;" ng-click="delResource(item.resourceId)">删除</a>
+                            </div>
+                        </li>
+                    </ul> -->
+                </li>
+            </ul>
+        <div class="noList" ng-show="!items||!items.length">
+            <i></i>未查询到相关数据
+        </div>
+        </div>
+        <div class="role-list-page">
+            <ms-page page="page" max="7" query="query()"></ms-page>
+        </div>
+    </div>
+    
+    <!-- 选择业务模块的弹框数据指令 -->
+    <msg-modal arrs='resourceApp' ng-if='isShow' is-show='isShow' page="page" max="9" query="getApps()" titles='选择业务模块' class="modalTip" app-content="appContent" draw='draw()'></msg-modal>
+</div>

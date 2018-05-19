@@ -1,0 +1,29 @@
+<script src="html/appMngt/appMngt.js"></script>
+<link rel="stylesheet" type="text/css" href="html/appMngt/appMngt.css">
+<div ng-controller="appAddCtrl" id="add_app" data-ng-init="init()">
+    <form name="appAdd_form" novalidate="novalidate" >
+        <div class="conRight details-content">
+            <div class="clearfix" style="height: 30px;">
+                <h1 class="floatL" ng-bind="'ms.appMngt.add.title'|msLang"></h1>
+            </div>
+            <div class="appCont" show-Type>
+                <h2 ng-bind="'ms.appMngt.Application.information'|msLang" class="sectionTitle"></h2>
+                <div class="clearfix">
+                    
+                     <ms-input title="{{'ms.appMngt.appName.label'|msLang}}" placeholder="{{'ms.appMngt.appName.placeholder'|msLang}}" form="appName" required='true' blur-check="true" maxlength="64" class="add_input" ></ms-input>
+                     <ms-input title="{{'ms.appMngt.businessUrl.label'|msLang}}" placeholder="{{'ms.appMngt.businessUrl.placeholder'|msLang}}" form="rootUrl" required='true' blur-check="true" style="float: right;" pattern="^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&!:\/~\+#]*[\w\-\@?^=%&!\/~\+#])?$" class="add_input"></ms-input>
+                  
+                </div>
+               
+                <ms-input title="{{'ms.appMngt.busDescription.label'|msLang}}" placeholder="{{'ms.appMngt.busDescription.placeholder'|msLang}}" form="appDesc" required='true' blur-check="true" textarea='true' style="width: 98.9%;"></ms-input>
+              
+                <div style="clear: both"></div>
+            </div>
+            <div class="MngtBtn floatR">
+                <button type="button" class="ms-btn ms-fillBtn ms-bigBtn" ng-click="addApp(appAdd_form.$valid)" has-permission="setting.readapp.update" ng-bind="'ms.appMngt.sureBtn.button'|msLang"></button>
+                <button type="button" class="ms-btn ms-spaceBtn ms-bigBtn" ui-sref="index.setting.app" has-permission="setting.app" ng-bind="'ms.appMngt.cancelBtn.button'|msLang"></button>
+            </div>
+        </div>
+    </form>
+
+</div>
